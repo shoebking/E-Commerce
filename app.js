@@ -8,6 +8,7 @@ import cors from "cors";
 const app = express();
 import dotenv from "dotenv";
 import path from 'path';
+import {fileURLToPath} from 'url';
 const PORT = process.env.PORT || 8080;
 
 //configure env
@@ -15,6 +16,8 @@ dotenv.config();
 
 // // Connect to MongoDB Atlas
 connectDB()
+const __fileName=fileURLToPath(import.meta.url);
+const __dirname=path.dirname(__fileName);
 
 // Middleware
 app.use(cors())
